@@ -19,7 +19,7 @@ HOME_FOLDER = os.getenv('HOME')
 
 def getControllerIP():
    
-    return "localhost"
+    return "10.20.20.128"
 
 def rest_call(path, data, action):
     headers = {

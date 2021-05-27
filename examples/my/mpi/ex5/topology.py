@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, OVSController
@@ -13,12 +13,13 @@ from subprocess import call
 def myNetwork():
 
     net = Mininet( topo=None,
-                   build=False)
+                   build=False,
+                   ipBase='10.0.0.0/8')
 
     info( '*** Adding controller\n' )
-    floodlight=net.addController(name='floodlight',
+    Floodlight=net.addController(name='Floodlight',
                       controller=RemoteController,
-                      ip='10.20.20.128',
+                      ip='127.0.0.1',
                       protocol='tcp',
                       port=6653)
 
@@ -27,34 +28,46 @@ def myNetwork():
     s2 = net.addSwitch('s2', cls=OVSKernelSwitch)
     s3 = net.addSwitch('s3', cls=OVSKernelSwitch)
     s4 = net.addSwitch('s4', cls=OVSKernelSwitch)
+    s5 = net.addSwitch('s5', cls=OVSKernelSwitch)
 
     info( '*** Add hosts\n')
-    h1 = net.addHost('h1', cls=Host,  defaultRoute=None)
-    h2 = net.addHost('h2', cls=Host,  defaultRoute=None)
-    h3 = net.addHost('h3', cls=Host,  defaultRoute=None)
-    h4 = net.addHost('h4', cls=Host,  defaultRoute=None)
+    h1 = net.addHost('h1', cls=Host, ip='10.0.0.1', defaultRoute=None)
+    h2 = net.addHost('h2', cls=Host, ip='10.0.0.2', defaultRoute=None)
+    h3 = net.addHost('h3', cls=Host, ip='10.0.0.3', defaultRoute=None)
+    h4 = net.addHost('h4', cls=Host, ip='10.0.0.4', defaultRoute=None)
+    h5 = net.addHost('h5', cls=Host, ip='10.0.0.5', defaultRoute=None)
 
     info( '*** Add links\n')
-    net.addLink(s1, s4)
+    net.addLink(s1, h1)
+    net.addLink(s1, h2)
+    net.addLink(s2, h3)
+    net.addLink(s2, h4)
+    net.addLink(s3, s1)
     net.addLink(s4, s2)
     net.addLink(s3, s2)
-    net.addLink(s1, s3)
-    net.addLink(h3, s1)
-    net.addLink(h4, s1)
-    net.addLink(s2, h1)
-    net.addLink(s2, h2)
+    net.addLink(s4, s1)
+    net.addLink(s5, s3)
+    net.addLink(s5, s4)
+    net.addLink(h5, s5)
 
     info( '*** Starting network\n')
     net.build()
+
     info( '*** Starting controllers\n')
     for controller in net.controllers:
         controller.start()
 
+
+    info( '*** Starting sshd\n')
+    for host in net.hosts:
+        host.cmd('/usr/sbin/sshd -D &')
+
     info( '*** Starting switches\n')
-    net.get('s1').start([floodlight])
-    net.get('s2').start([floodlight])
-    net.get('s3').start([floodlight])
-    net.get('s4').start([floodlight])
+    net.get('s1').start([Floodlight])
+    net.get('s2').start([Floodlight])
+    net.get('s3').start([Floodlight])
+    net.get('s4').start([Floodlight])
+    net.get('s5').start([Floodlight])
 
     info( '*** Post configure switches and hosts\n')
 
