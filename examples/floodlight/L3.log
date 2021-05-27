@@ -1,0 +1,178 @@
+2021-05-25 15:43:11.762 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:43:11.923 INFO  [n.f.h.ControllerLogic] [ControllerLogic] Election timed out, setting Controller 1 as LEADER!
+2021-05-25 15:43:11.923 INFO  [n.f.h.ControllerLogic] [ControllerLogic] Getting Leader: 1
+
+
+2021-05-25 15:43:12.907 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:01] dst[ff:ff:ff:ff:ff:ff]
+2021-05-25 15:43:12.907 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:01 dstMac ff:ff:ff:ff:ff:ff ethARP [hardwareType=1, protocolType=2048, hardwareAddressLength=6, protocolAddressLength=4, opCode=1, senderHardwareAddress=00:00:00:00:00:01, senderProtocolAddress=10.0.0.10, targetHardwareAddress=00:00:00:00:00:00, targetProtocolAddress=10.0.0.1]
+2021-05-25 15:43:12.923 INFO  [n.f.t.f.Forward4] [linha 340]Virtual gateway pushing ARP reply message to source host
+
+
+2021-05-25 15:43:12.925 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:01] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:12.925 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:01 dstMac aa:bb:cc:dd:ee:ff ethnet.floodlightcontroller.packet.IPv4@276c978f
+2021-05-25 15:43:12.925 INFO  [n.f.t.f.Forward4] [linha 330] InterfaceIP 20.0.0.1 dstIp 20.0.0.20
+2021-05-25 15:43:12.925 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:12.926 INFO  [n.f.t.f.Forward4] findDstDeviceForL3Routing dstIP20.0.0.20 dstDevice null
+2021-05-25 15:43:12.926 INFO  [n.f.t.f.Forward4] [linha384] Virtual gateway creates and flood arp request packet for destination host
+2021-05-25 15:43:12.926 INFO  [n.f.t.f.Forward4] doL3Flood
+2021-05-25 15:43:12.926 INFO  [n.f.t.f.Forward4] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:43:12.926 INFO  [n.f.t.f.Forward4] [linha385] Add new packet-in associate with packet source 10.0.0.10 and destination 20.0.0.20 to cache
+2021-05-25 15:43:12.928 ERROR [n.f.t.f.Forward4] Error looking up ports with links from topology service for switch 00:00:00:00:00:00:00:01
+2021-05-25 15:43:12.928 ERROR [n.f.t.f.Forward4] Could not locate a 'true' attachment point in SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=2, errorStatus=null]
+
+
+2021-05-25 15:43:12.929 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:12.929 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac aa:bb:cc:dd:ee:ff ethARP [hardwareType=1, protocolType=2048, hardwareAddressLength=6, protocolAddressLength=4, opCode=2, senderHardwareAddress=00:00:00:00:00:02, senderProtocolAddress=20.0.0.20, targetHardwareAddress=aa:bb:cc:dd:ee:ff, targetProtocolAddress=20.0.0.1]
+2021-05-25 15:43:12.929 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:12.929 INFO  [n.f.t.f.Forward4] [linha394] Destination device unknown. Flooding packet
+2021-05-25 15:43:12.929 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 aa:bb:cc:dd:ee:ff
+2021-05-25 15:43:12.929 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+
+
+2021-05-25 15:43:13.921 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:01] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:13.921 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:01 dstMac aa:bb:cc:dd:ee:ff ethnet.floodlightcontroller.packet.IPv4@aeb273e4
+2021-05-25 15:43:13.921 INFO  [n.f.t.f.Forward4] [linha 330] InterfaceIP 20.0.0.1 dstIp 20.0.0.20
+2021-05-25 15:43:13.921 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:13.921 INFO  [n.f.t.f.Forward4] findDstDeviceForL3Routing dstIP20.0.0.20 dstDevice Device [deviceKey=0, entityClass=DefaultEntityClass, MAC=00:00:00:00:00:02, IPv4s=[20.0.0.20], IPv6s=[fe80::200:ff:fe00:2], APs=[SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=2, errorStatus=null]]]
+2021-05-25 15:43:13.922 INFO  [n.f.t.f.Forward4] [linha 460] dstAP SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=2, errorStatus=null]
+2021-05-25 15:43:13.922 INFO  [n.f.t.f.Forward4] Generating flowset ID 0, shifted 0x0000000000000000
+2021-05-25 15:43:13.959 ERROR [n.f.t.f.Forward4] Error looking up ports with links from topology service for switch 00:00:00:00:00:00:00:01
+2021-05-25 15:43:13.959 ERROR [n.f.t.f.Forward4] Could not locate a 'true' attachment point in SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=2, errorStatus=null]
+2021-05-25 15:43:13.959 INFO  [n.f.t.f.Forward4] createMatchFromPacket
+2021-05-25 15:43:14.15 INFO  [n.f.t.f.Forward4] [linha 502] L3 path is [[id=00:00:00:00:00:00:00:01, port=1], [id=00:00:00:00:00:00:00:01, port=2]]
+2021-05-25 15:43:14.57 INFO  [n.f.t.f.Forward4] [linha 509] buildRewriteFlows
+2021-05-25 15:43:14.58 INFO  [n.f.t.f.Forward4] [linha 515] pushRoute Route [id=RouteId [src=00:00:00:00:00:00:00:01 dst=00:00:00:00:00:00:00:01], switchPorts=[]]
+
+
+2021-05-25 15:43:14.945 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:14.945 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac aa:bb:cc:dd:ee:ff ethnet.floodlightcontroller.packet.IPv4@41672c52
+2021-05-25 15:43:14.945 INFO  [n.f.t.f.Forward4] [linha 330] InterfaceIP 10.0.0.1 dstIp 10.0.0.10
+2021-05-25 15:43:14.945 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:14.946 INFO  [n.f.t.f.Forward4] findDstDeviceForL3Routing dstIP10.0.0.10 dstDevice Device [deviceKey=1, entityClass=DefaultEntityClass, MAC=00:00:00:00:00:01, IPv4s=[10.0.0.10], IPv6s=[fe80::200:ff:fe00:1], APs=[SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=1, errorStatus=null]]]
+2021-05-25 15:43:14.946 INFO  [n.f.t.f.Forward4] [linha 460] dstAP SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=1, errorStatus=null]
+2021-05-25 15:43:14.946 INFO  [n.f.t.f.Forward4] Generating flowset ID 1, shifted 0x0000000001000000
+2021-05-25 15:43:14.947 ERROR [n.f.t.f.Forward4] Error looking up ports with links from topology service for switch 00:00:00:00:00:00:00:01
+2021-05-25 15:43:14.947 ERROR [n.f.t.f.Forward4] Could not locate a 'true' attachment point in SwitchPort [switchDPID=00:00:00:00:00:00:00:01, port=1, errorStatus=null]
+2021-05-25 15:43:14.947 INFO  [n.f.t.f.Forward4] createMatchFromPacket
+2021-05-25 15:43:14.947 INFO  [n.f.t.f.Forward4] [linha 502] L3 path is [[id=00:00:00:00:00:00:00:01, port=2], [id=00:00:00:00:00:00:00:01, port=1]]
+2021-05-25 15:43:14.947 INFO  [n.f.t.f.Forward4] [linha 509] buildRewriteFlows
+2021-05-25 15:43:14.948 INFO  [n.f.t.f.Forward4] [linha 515] pushRoute Route [id=RouteId [src=00:00:00:00:00:00:00:01 dst=00:00:00:00:00:00:00:01], switchPorts=[]]
+
+
+2021-05-25 15:43:20.161 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:20.162 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac aa:bb:cc:dd:ee:ff ethARP [hardwareType=1, protocolType=2048, hardwareAddressLength=6, protocolAddressLength=4, opCode=1, senderHardwareAddress=00:00:00:00:00:02, senderProtocolAddress=20.0.0.20, targetHardwareAddress=00:00:00:00:00:00, targetProtocolAddress=20.0.0.1]
+2021-05-25 15:43:20.162 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:20.162 INFO  [n.f.t.f.Forward4] [linha394] Destination device unknown. Flooding packet
+2021-05-25 15:43:20.162 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 aa:bb:cc:dd:ee:ff
+2021-05-25 15:43:20.162 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+
+
+2021-05-25 15:43:21.184 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:21.184 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac aa:bb:cc:dd:ee:ff ethARP [hardwareType=1, protocolType=2048, hardwareAddressLength=6, protocolAddressLength=4, opCode=1, senderHardwareAddress=00:00:00:00:00:02, senderProtocolAddress=20.0.0.20, targetHardwareAddress=00:00:00:00:00:00, targetProtocolAddress=20.0.0.1]
+2021-05-25 15:43:21.184 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:21.184 INFO  [n.f.t.f.Forward4] [linha394] Destination device unknown. Flooding packet
+2021-05-25 15:43:21.185 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 aa:bb:cc:dd:ee:ff
+2021-05-25 15:43:21.185 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+
+
+2021-05-25 15:43:22.209 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[aa:bb:cc:dd:ee:ff]
+2021-05-25 15:43:22.210 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac aa:bb:cc:dd:ee:ff ethARP [hardwareType=1, protocolType=2048, hardwareAddressLength=6, protocolAddressLength=4, opCode=1, senderHardwareAddress=00:00:00:00:00:02, senderProtocolAddress=20.0.0.20, targetHardwareAddress=00:00:00:00:00:00, targetProtocolAddress=20.0.0.1]
+2021-05-25 15:43:22.210 INFO  [n.f.t.f.Forward4] [linha 368] doL3ForwardFlow
+2021-05-25 15:43:22.210 INFO  [n.f.t.f.Forward4] [linha394] Destination device unknown. Flooding packet
+2021-05-25 15:43:22.210 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 aa:bb:cc:dd:ee:ff
+2021-05-25 15:43:22.210 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:43:26.764 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+
+
+2021-05-25 15:43:28.609 INFO  [n.f.t.f.Forward4] [linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[33:33:00:00:00:02]
+2021-05-25 15:43:28.609 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac 33:33:00:00:00:02 ethIPv6 [version=6, trafficClass=0, flowLabel=0, payloadLength=16, nextHeader=0x3a, hopLimit=-1, sourceAddress=fe80::200:ff:fe00:2, destinationAddress=ff02::2, parent=
+0x86dd
+dl_vlan: untagged
+dl_vlan_pcp: 0
+dl_src: 00:00:00:00:00:02
+dl_dst: 33:33:00:00:00:02
+nw_src: fe80::200:ff:fe00:2
+nw_dst: ff02::2
+nw_tclass: 0
+nw_proto: 0x3a, payload=net.floodlightcontroller.packet.Data@340c0314]
+2021-05-25 15:43:28.610 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 33:33:00:00:00:02
+2021-05-25 15:43:28.610 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:43:28.611 INFO  [n.f.t.f.Forward4]
+[linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:01] dst[33:33:00:00:00:02]
+2021-05-25 15:43:28.611 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:01 dstMac 33:33:00:00:00:02 ethIPv6 [version=6, trafficClass=0, flowLabel=0, payloadLength=16, nextHeader=0x3a, hopLimit=-1, sourceAddress=fe80::200:ff:fe00:1, destinationAddress=ff02::2, parent=
+0x86dd
+dl_vlan: untagged
+dl_vlan_pcp: 0
+dl_src: 00:00:00:00:00:01
+dl_dst: 33:33:00:00:00:02
+nw_src: fe80::200:ff:fe00:1
+nw_dst: ff02::2
+nw_tclass: 0
+nw_proto: 0x3a, payload=net.floodlightcontroller.packet.Data@11121015]
+2021-05-25 15:43:28.611 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:01 33:33:00:00:00:02
+2021-05-25 15:43:28.611 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:43:41.769 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:43:56.773 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:44:11.776 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:44:26.780 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:44:28.0 INFO  [n.f.t.f.Forward4]
+[linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[33:33:00:00:00:02]
+2021-05-25 15:44:28.1 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac 33:33:00:00:00:02 ethIPv6 [version=6, trafficClass=0, flowLabel=0, payloadLength=16, nextHeader=0x3a, hopLimit=-1, sourceAddress=fe80::200:ff:fe00:2, destinationAddress=ff02::2, parent=
+0x86dd
+dl_vlan: untagged
+dl_vlan_pcp: 0
+dl_src: 00:00:00:00:00:02
+dl_dst: 33:33:00:00:00:02
+nw_src: fe80::200:ff:fe00:2
+nw_dst: ff02::2
+nw_tclass: 0
+nw_proto: 0x3a, payload=net.floodlightcontroller.packet.Data@340c0314]
+2021-05-25 15:44:28.1 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 33:33:00:00:00:02
+2021-05-25 15:44:28.1 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:44:30.48 INFO  [n.f.t.f.Forward4]
+[linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:01] dst[33:33:00:00:00:02]
+2021-05-25 15:44:30.49 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:01 dstMac 33:33:00:00:00:02 ethIPv6 [version=6, trafficClass=0, flowLabel=0, payloadLength=16, nextHeader=0x3a, hopLimit=-1, sourceAddress=fe80::200:ff:fe00:1, destinationAddress=ff02::2, parent=
+0x86dd
+dl_vlan: untagged
+dl_vlan_pcp: 0
+dl_src: 00:00:00:00:00:01
+dl_dst: 33:33:00:00:00:02
+nw_src: fe80::200:ff:fe00:1
+nw_dst: ff02::2
+nw_tclass: 0
+nw_proto: 0x3a, payload=net.floodlightcontroller.packet.Data@11121015]
+2021-05-25 15:44:30.49 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:01 33:33:00:00:00:02
+2021-05-25 15:44:30.49 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:44:41.783 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:44:56.786 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:45:11.789 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:45:26.792 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:45:41.795 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:45:56.799 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:46:11.801 INFO  [n.f.l.i.LinkDiscoveryManager] Sending LLDP packets out of all the enabled ports
+2021-05-25 15:46:24.736 INFO  [n.f.t.f.Forward4]
+[linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:02] dst[33:33:00:00:00:02]
+2021-05-25 15:46:24.737 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:02 dstMac 33:33:00:00:00:02 ethIPv6 [version=6, trafficClass=0, flowLabel=0, payloadLength=16, nextHeader=0x3a, hopLimit=-1, sourceAddress=fe80::200:ff:fe00:2, destinationAddress=ff02::2, parent=
+0x86dd
+dl_vlan: untagged
+dl_vlan_pcp: 0
+dl_src: 00:00:00:00:00:02
+dl_dst: 33:33:00:00:00:02
+nw_src: fe80::200:ff:fe00:2
+nw_dst: ff02::2
+nw_tclass: 0
+nw_proto: 0x3a, payload=net.floodlightcontroller.packet.Data@340c0314]
+2021-05-25 15:46:24.737 INFO  [n.f.t.f.Forward4] doFlood sw OFSwitch DPID[00:00:00:00:00:00:00:01] eth 00:00:00:00:00:02 33:33:00:00:00:02
+2021-05-25 15:46:24.737 INFO  [n.f.t.f.Forward4] [linha 1182] No broadcast ports found. Using FLOOD output action
+2021-05-25 15:46:26.785 INFO  [n.f.t.f.Forward4]
+[linha 265] >>>> PACKT_IN <<<<  src[00:00:00:00:00:01] dst[33:33:00:00:00:02]
+2021-05-25 15:46:26.785 INFO  [n.f.t.f.Forward4] [linha 319] doL3Routing >>> srcMac 00:00:00:00:00:01 dstMac 33:33:00:00:00:02 ethIPv6 [version=6, trafficClass=0, flowLabel=0, payloadLength=16, nextHeader=0x3a, hopLimit=-1, sourceAddress=fe80::200:ff:fe00:1, destinationAddress=ff02::2, parent=
+0x86dd
+dl_vlan: untagged
+dl_vlan_pcp: 0
+dl_src: 00:00:00:00:00:01
+dl_dst: 33:33:00:00:00:02
+nw_src: fe80::200:ff:fe00:1
+nw_dst: ff02::2
+nw_tclass: 0
+nw_proto: 0x3a, payload=net.floodlightcontroller.packet.Data@11121015]

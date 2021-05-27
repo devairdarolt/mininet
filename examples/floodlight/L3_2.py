@@ -18,7 +18,7 @@ HOME_FOLDER = os.getenv('HOME')
 
 
 def getControllerIP():
-   
+
     return "localhost"
 
 def rest_call(path, data, action):
@@ -126,14 +126,14 @@ def startNetworkWithLinearTopo( hostCount ):
     host1 = net.getNodeByName('h1')
     host1.setMAC( '00:00:00:00:00:01')
     host1.setIP('10.0.0.10', prefixLen=24)
-    
+
     defaultGatewayIP1 = "10.0.0.1"
     configureDefaultGatewayForHost(host1, defaultGatewayIP1)
 
     host2 = net.getNodeByName('h2')
     host2.setMAC( '00:00:00:00:00:02')
-    host2.setIP('20.0.0.20', prefixLen=24)
-    defaultGatewayIP2 = "20.0.0.1"
+    host2.setIP('10.0.0.20', prefixLen=24)
+    defaultGatewayIP2 = "10.0.0.1"
     configureDefaultGatewayForHost(host2, defaultGatewayIP2)
 
 def clearGatewayInstance(name):
@@ -154,4 +154,3 @@ if __name__ == '__main__':
     startNetworkWithLinearTopo(2)
     CLI(net)
     stopNetwork()
-
