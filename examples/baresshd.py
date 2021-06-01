@@ -36,6 +36,8 @@ cmd = '/usr/sbin/sshd -o UseDNS=no -u0 -o "Banner /tmp/%s.banner"' % h1.name
 # add arguments from the command line
 if len( sys.argv ) > 1:
     cmd += ' ' + ' '.join( sys.argv[ 1: ] )
+
+output("*** ",cmd," ***")
 h1.cmd( cmd )
 listening = waitListening( server=h1, port=22, timeout=timeout )
 
