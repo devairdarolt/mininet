@@ -207,16 +207,16 @@ def myNetwork():
     net.get('s24').start([Floodlight])
 
     info( '*** Post configure switches and hosts\n')
-    
+
     os.system("useradd mininet_user")
-    
+
 
 
     info( '*** ssh init\n')
     for host in net.hosts:
-        
+
         host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")
-        host.cmd("xterm -e ssh -X mininet_user@localhost &")
+        #host.cmd("xterm -e ssh -X mininet_user@localhost &")
 
 
     CLI(net)
@@ -228,7 +228,7 @@ if __name__ == '__main__':
         myNetwork()
     except:
         print("Error on start. mn -c")
-    
+
     finally:
         cleanup()
         print("kill sshd listeners\nkill -9 $(pgrep -f listener)")
@@ -236,5 +236,3 @@ if __name__ == '__main__':
         os.system("kill -9 $(pgrep -f xterm)")
 
         os.system("userdel mininet_user")
-    
-
