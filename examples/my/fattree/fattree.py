@@ -176,7 +176,7 @@ if __name__ == '__main__':
         logger.debug("You are NOT root")
     elif os.getuid() == 0:
         try:
-            createTopo(4, 1)
+            createTopo(4, 2)
         except:
             print("Error on start mininet. cleanup!")
 

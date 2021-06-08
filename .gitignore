@@ -1,4 +1,5 @@
 mnexec
+*.log
 *.pyc
 *~
 *.1
