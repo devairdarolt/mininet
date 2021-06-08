@@ -40,7 +40,11 @@ def myNetwork():
                       protocol='tcp',
                       port=6653)
 
+
+
+    #Floodlight=net.addController('c0')
     info( '*** Add switches\n')
+
     s1 = net.addSwitch('s1', cls=OVSKernelSwitch, dpid='1',protocols="OpenFlow13")
     s2 = net.addSwitch('s2', cls=OVSKernelSwitch, dpid='2',protocols="OpenFlow13")
     s3 = net.addSwitch('s3', cls=OVSKernelSwitch, dpid='3',protocols="OpenFlow13")
