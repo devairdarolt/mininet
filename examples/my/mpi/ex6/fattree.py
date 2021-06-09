@@ -212,7 +212,7 @@ def myNetwork():
 
     info( '*** Post configure switches and hosts\n')
 
-    os.system("useradd mininet_user")
+    #os.system("useradd mininet_user")
 
 
 

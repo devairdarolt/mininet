@@ -117,7 +117,6 @@ class Fattree(Topo):
                 cmd = "sudo ovs-vsctl set bridge %s protocols=OpenFlow13" % sw
                 os.system(cmd)
 
-
 def iperfTest(net, topo):
     logger.debug("Start iperfTEST")
     h1000, h1015, h1016 = net.get(
@@ -140,6 +139,10 @@ def pingTest(net):
     logger.debug("Start Test all network")
     net.pingAll()
 
+def startServerSSH(net):
+    for host in net.hosts:
+        host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")        
+        info(host.name,"start sshd listener in ", host.IP(), '\n' )
 
 def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, bw_h2a=0.05):
     logging.debug("LV1 Create Fattree")
@@ -161,7 +164,9 @@ def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, 
     '''
     topo.set_ovs_protocol_13()
 
-    logger.debug("LV1 dumpNode")
+    startServerSSH(net)
+
+
 
     #dumpNodeConnections(net.hosts)
     #pingTest(net)
@@ -176,7 +181,7 @@ if __name__ == '__main__':
         logger.debug("You are NOT root")
     elif os.getuid() == 0:
         try:
-            createTopo(4, 2)
+            createTopo(4, 1)
         except:
             print("Error on start mininet. cleanup!")
 
@@ -185,3 +190,4 @@ if __name__ == '__main__':
             print("kill sshd listeners   kill -9 $(pgrep -f listener)")
             os.system("kill -9 $(pgrep -f listener)")
             os.system("kill -9 $(pgrep -f xterm)")
+            os.system("service ssh restart")
