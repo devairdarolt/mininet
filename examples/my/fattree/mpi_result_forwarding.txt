@@ -1,0 +1,7 @@
+# OSU MPI Allgather Latency Test v5.5
+# Size       Avg Latency(us)
+1                   73858.61
+2                   74135.18
+4                   74899.27
+8                   75265.15
+16                  76682.76

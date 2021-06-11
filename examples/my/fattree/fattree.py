@@ -107,14 +107,14 @@ class Fattree(Topo):
                     self.HostList[self.density * x + i],
                     bw=bw_h2a)
 
-    def set_ovs_protocol_13(self,):
-        self._set_ovs_protocol_13(self.CoreSwitchList)
-        self._set_ovs_protocol_13(self.AggSwitchList)
-        self._set_ovs_protocol_13(self.EdgeSwitchList)
+    def set_ovs_protocol(self,):
+        self._set_ovs_protocol(self.CoreSwitchList)
+        self._set_ovs_protocol(self.AggSwitchList)
+        self._set_ovs_protocol(self.EdgeSwitchList)
 
-    def _set_ovs_protocol_13(self, sw_list):
+    def _set_ovs_protocol(self, sw_list):
             for sw in sw_list:
-                cmd = "sudo ovs-vsctl set bridge %s protocols=OpenFlow13" % sw
+                cmd = "sudo ovs-vsctl set bridge %s protocols=OpenFlow15" % sw
                 os.system(cmd)
 
 def iperfTest(net, topo):
@@ -141,7 +141,7 @@ def pingTest(net):
 
 def startServerSSH(net):
     for host in net.hosts:
-        host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")        
+        host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")
         info(host.name,"start sshd listener in ", host.IP(), '\n' )
 
 def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, bw_h2a=0.05):
@@ -162,7 +162,7 @@ def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, 
     '''
         Set OVS's protocol as OF13
     '''
-    topo.set_ovs_protocol_13()
+    topo.set_ovs_protocol()
 
     startServerSSH(net)
 
