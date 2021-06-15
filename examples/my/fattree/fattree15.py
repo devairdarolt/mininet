@@ -53,7 +53,7 @@ class Fattree(Topo):
             PREFIX = str(level) + "00"
             if x >= int(10):
                 PREFIX = str(level) + "0"
-            switch_list.append(self.addSwitch('s' + PREFIX + str(x)))
+            switch_list.append(self.addSwitch('s' + PREFIX + str(x),cls=OVSKernelSwitch,protocols="OpenFlow15"))
 
     def createCoreLayerSwitch(self, NUMBER):
         logger.debug("Create Core Layer")
@@ -162,7 +162,7 @@ def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, 
     '''
         Set OVS's protocol as OF13
     '''
-    topo.set_ovs_protocol()
+    #topo.set_ovs_protocol()
 
     startServerSSH(net)
 

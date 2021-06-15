@@ -53,7 +53,7 @@ class Fattree(Topo):
             PREFIX = str(level) + "00"
             if x >= int(10):
                 PREFIX = str(level) + "0"
-            switch_list.append(self.addSwitch('s' + PREFIX + str(x)))
+            switch_list.append(self.addSwitch('s' + PREFIX + str(x),cls=OVSKernelSwitch,protocols="OpenFlow13"))
 
     def createCoreLayerSwitch(self, NUMBER):
         logger.debug("Create Core Layer")
@@ -80,7 +80,7 @@ class Fattree(Topo):
     """
     Add Link
     """
-    def createLink(self, bw_c2a=0.2, bw_a2e=0.1, bw_h2a=0.5):
+    def createLink(self, bw_c2a=0.2, bw_a2e=0.1, bw_h2e=0.5):
         logger.debug("Add link Core to Agg.")
         end = int(self.pod/2)
         for x in range(0, int(self.iAggLayerSwitch), int(end)):
@@ -105,7 +105,7 @@ class Fattree(Topo):
                 self.addLink(
                     self.EdgeSwitchList[x],
                     self.HostList[self.density * x + i],
-                    bw=bw_h2a)
+                    bw=bw_h2e)
 
     def set_ovs_protocol(self,):
         self._set_ovs_protocol(self.CoreSwitchList)
@@ -116,6 +116,20 @@ class Fattree(Topo):
             for sw in sw_list:
                 cmd = "sudo ovs-vsctl set bridge %s protocols=OpenFlow13" % sw
                 os.system(cmd)
+
+    def macAddressToDecimal(mac):
+        res = re.match('^((?:(?:[0-9a-f]{2}):){5}[0-9a-f]{2})$', mac.lower())
+        if res is None:
+            raise ValueError('invalid mac address')
+        return int(res.group(0).replace(':', ''), 16)
+
+    def decimalToMacAddress(macint):
+        if type(macint) != int:
+            raise ValueError('invalid integer')
+        return ':'.join(['{}{}'.format(a, b)
+                         for a, b
+                         in zip(*[iter('{:012x}'.format(macint))]*2)])
+
 
 def iperfTest(net, topo):
     logger.debug("Start iperfTEST")
@@ -144,13 +158,12 @@ def startServerSSH(net):
         host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")
         info(host.name,"start sshd listener in ", host.IP(), '\n' )
 
-def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, bw_h2a=0.05):
+def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=10, bw_a2e=10, bw_h2e=100):
     logging.debug("LV1 Create Fattree")
     topo = Fattree(pod, density)
     topo.createTopo()
-    topo.createLink(bw_c2a=bw_c2a, bw_a2e=bw_a2e, bw_h2a=bw_h2a)
+    topo.createLink(bw_c2a=bw_c2a, bw_a2e=bw_a2e, bw_h2e=bw_h2e)
 
-    logging.debug("LV1 Start Mininet")
     CONTROLLER_IP = ip
     CONTROLLER_PORT = port
     net = Mininet(topo=topo, link=TCLink, controller=None, autoSetMacs=True)
@@ -159,15 +172,7 @@ def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=0.2, bw_a2e=0.1, 
         ip=CONTROLLER_IP, port=CONTROLLER_PORT)
     net.start()
 
-    '''
-        Set OVS's protocol as OF13
-    '''
-    topo.set_ovs_protocol()
-
     startServerSSH(net)
-
-
-
     #dumpNodeConnections(net.hosts)
     #pingTest(net)
     #iperfTest(net, topo)

@@ -24,10 +24,10 @@ def myNetwork():
                       port=6653)
 
     info( '*** Add switches\n')
-    s1 = net.addSwitch('s1', cls=OVSKernelSwitch,protocols="OpenFlow13")
-    s2 = net.addSwitch('s2', cls=OVSKernelSwitch,protocols="OpenFlow13")
-    s3 = net.addSwitch('s3', cls=OVSKernelSwitch,protocols="OpenFlow13")
-    s4 = net.addSwitch('s4', cls=OVSKernelSwitch,protocols="OpenFlow13")
+    s1 = net.addSwitch('s1', cls=OVSKernelSwitch,protocols="OpenFlow15")
+    s2 = net.addSwitch('s2', cls=OVSKernelSwitch,protocols="OpenFlow15")
+    s3 = net.addSwitch('s3', cls=OVSKernelSwitch,protocols="OpenFlow15")
+    s4 = net.addSwitch('s4', cls=OVSKernelSwitch,protocols="OpenFlow15")
 
     info( '*** Add hosts\n')
     h1 = net.addHost('h1', cls=Host, mac='00:00:00:00:00:01',ip='10.0.0.1', defaultRoute=None)
