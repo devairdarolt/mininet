@@ -1,0 +1,10 @@
+# OSU MPI Non-blocking Barrier Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+       Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+          59114.99          42808.04             23.17              0.00          16283.36          38833.74             58.01
+# OSU MPI Non-blocking Barrier Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+       Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+          46204.19          30837.99             20.26              0.00          15345.54          27863.15             44.85

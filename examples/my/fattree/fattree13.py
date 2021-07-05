@@ -15,19 +15,17 @@ from mininet.util import waitListening
 from mininet.clean import cleanup
 import re
 
-logging.basicConfig(filename='./fattree.log', level=logging.INFO)
-logger = logging.getLogger(__name__)
+#logging.basicConfig(filename='./fattree.log', level=logging.INFO)
+#logger = logging.getLogger(__name__)
 
 
 class Fattree(Topo):
-    logger.debug("Class Fattree")
     CoreSwitchList = []
     AggSwitchList = []
     EdgeSwitchList = []
     HostList = []
 
     def __init__(self, k, density):
-        logger.debug("Class Fattree init")
         self.pod = k
         self.iCoreLayerSwitch = (k/2)**2
         self.iAggLayerSwitch = k*k/2
@@ -56,19 +54,15 @@ class Fattree(Topo):
             switch_list.append(self.addSwitch('s' + PREFIX + str(x),cls=OVSKernelSwitch,protocols="OpenFlow13"))
 
     def createCoreLayerSwitch(self, NUMBER):
-        logger.debug("Create Core Layer")
         self._addSwitch(NUMBER, 1, self.CoreSwitchList)
 
     def createAggLayerSwitch(self, NUMBER):
-        logger.debug("Create Agg Layer")
         self._addSwitch(NUMBER, 2, self.AggSwitchList)
 
     def createEdgeLayerSwitch(self, NUMBER):
-        logger.debug("Create Edge Layer")
         self._addSwitch(NUMBER, 3, self.EdgeSwitchList)
 
     def createHost(self, NUMBER):
-        logger.debug("Create Host")
         for x in range(1, int(NUMBER+1)):
             PREFIX = "h00"
             if x >= int(10):
@@ -81,7 +75,6 @@ class Fattree(Topo):
     Add Link
     """
     def createLink(self, bw_c2a=0.2, bw_a2e=0.1, bw_h2e=0.5):
-        logger.debug("Add link Core to Agg.")
         end = int(self.pod/2)
         for x in range(0, int(self.iAggLayerSwitch), int(end)):
             for i in range(0, int(end)):
@@ -91,7 +84,6 @@ class Fattree(Topo):
                         self.AggSwitchList[x+i],
                         bw=bw_c2a)
 
-        logger.debug("Add link Agg to Edge.")
         for x in range(0, int(self.iAggLayerSwitch), end):
             for i in range(0, end):
                 for j in range(0, end):
@@ -99,7 +91,6 @@ class Fattree(Topo):
                         self.AggSwitchList[x+i], self.EdgeSwitchList[x+j],
                         bw=bw_a2e)
 
-        logger.debug("Add link Edge to Host.")
         for x in range(0, int(self.iEdgeLayerSwitch)):
             for i in range(0, self.density):
                 self.addLink(
@@ -132,7 +123,6 @@ class Fattree(Topo):
 
 
 def iperfTest(net, topo):
-    logger.debug("Start iperfTEST")
     h1000, h1015, h1016 = net.get(
         topo.HostList[0], topo.HostList[14], topo.HostList[15])
 
@@ -150,7 +140,6 @@ def iperfTest(net, topo):
 
 
 def pingTest(net):
-    logger.debug("Start Test all network")
     net.pingAll()
 
 def startServerSSH(net):
@@ -158,8 +147,7 @@ def startServerSSH(net):
         host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")
         info(host.name,"start sshd listener in ", host.IP(), '\n' )
 
-def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=10, bw_a2e=10, bw_h2e=100):
-    logging.debug("LV1 Create Fattree")
+def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=1000, bw_a2e=1000, bw_h2e=1000):
     topo = Fattree(pod, density)
     topo.createTopo()
     topo.createLink(bw_c2a=bw_c2a, bw_a2e=bw_a2e, bw_h2e=bw_h2e)
@@ -183,10 +171,10 @@ def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=10, bw_a2e=10, bw
 if __name__ == '__main__':
     setLogLevel('info')
     if os.getuid() != 0:
-        logger.debug("You are NOT root")
+        info("need root")
     elif os.getuid() == 0:
         try:
-            createTopo(4, 1)
+            createTopo(4, 2)
         except:
             print("Error on start mininet. cleanup!")
 

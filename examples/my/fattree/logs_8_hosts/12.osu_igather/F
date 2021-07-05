@@ -1,0 +1,10 @@
+# OSU MPI Non-blocking Gather Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            151696.48          41852.31            122.10              0.00         109721.37          34551.57              0.00
+# OSU MPI Non-blocking Gather Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            147411.99          42514.96             51.45              0.00         104844.87          35875.88              0.00

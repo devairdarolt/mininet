@@ -1,0 +1,6 @@
+# OSU MPI Gather Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576             93075.24          23419.27         186246.67          50
+# OSU MPI Gather Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576             77989.50          15213.36         165122.03          50

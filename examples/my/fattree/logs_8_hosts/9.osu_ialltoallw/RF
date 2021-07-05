@@ -1,0 +1,10 @@
+# OSU MPI Non-blocking All-to-Allw Personalized Exchange Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            401920.08         201196.54            479.49              0.00         200242.91         192678.78              0.00
+# OSU MPI Non-blocking All-to-Allw Personalized Exchange Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            398162.38         208039.37            608.21              0.00         189513.89         199617.82              4.76

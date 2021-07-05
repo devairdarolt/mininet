@@ -1,0 +1,6 @@
+# OSU MPI Barrier Latency Test v5.5
+# Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+         20869.68          20523.42          21204.02          50
+# OSU MPI Barrier Latency Test v5.5
+# Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+         37621.63          37075.39          38106.84          50

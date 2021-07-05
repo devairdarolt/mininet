@@ -1,0 +1,6 @@
+# OSU MPI Broadcast Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576             66226.82          55083.98          79281.17          50
+# OSU MPI Broadcast Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576             68209.34          52923.31          78987.81          50

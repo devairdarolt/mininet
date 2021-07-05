@@ -1,0 +1,6 @@
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576            504563.63         498171.18         514597.70          50
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576            501865.14         490253.08         511355.61          50

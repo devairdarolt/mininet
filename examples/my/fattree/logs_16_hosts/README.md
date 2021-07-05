@@ -1,0 +1,46 @@
+#Logs de execuções de todos os algorítmos do OSU Benckmark
+
+# Para executar impar/par fixar tamanho do pacote
+
+# 10Mb
+# -m 1:1024
+# -m 1:4096
+# -np 8 no MPI e limitar as msgs em 2048
+
+
+
+1.osu_allreduce
+2.osu_alltoall
+3.osu_barrier
+4.osu_bcast
+5.osu_gather
+6.osu_iallgather
+7.osu_iallreduce
+8.osu_ialltoall
+9.osu_ialltoallw
+10.osu_ibarrier
+11.osu_ibcast
+12.osu_igather
+13.osu_ireduce
+14.osu_iscatter
+15.osu_reduce
+16.osu_reduce_scatter
+17.osu_scatter
+10.osu_ibarrier
+11.osu_ibcast
+12.osu_igather
+13.osu_ireduce
+14.osu_iscatter
+15.osu_reduce
+16.osu_reduce_scatter
+17.osu_scatter
+1.osu_allreduce
+2.osu_alltoall
+3.osu_barrier
+4.osu_bcast
+5.osu_gather
+6.osu_iallgather
+7.osu_iallreduce
+8.osu_ialltoall
+9.osu_ialltoallw
+README.md

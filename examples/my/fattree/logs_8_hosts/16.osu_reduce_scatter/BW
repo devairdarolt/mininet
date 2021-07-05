@@ -1,0 +1,6 @@
+# OSU MPI Reduce_scatter Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576            242951.30         232324.52         251779.49          50
+# OSU MPI Reduce_scatter Latency Test v5.5
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1048576            228807.72         223129.80         235157.61          50

@@ -1,0 +1,10 @@
+# OSU MPI Non-blocking Reduce Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            141653.99          64408.64             19.25              0.00          77225.47          56264.16              0.00
+# OSU MPI Non-blocking Reduce Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            136174.52          63017.69             16.65              0.00          73139.55          54594.66              0.00

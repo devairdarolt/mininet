@@ -1,0 +1,10 @@
+# OSU MPI Non-Blocking Broadcast Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            134859.65          90940.61             13.44              0.00          43905.00          83063.28             47.13
+# OSU MPI Non-Blocking Broadcast Latency Test v5.5
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+# Size           Overall(us)       Compute(us)    Coll. Init(us)      MPI_Test(us)      MPI_Wait(us)    Pure Comm.(us)        Overlap(%)
+1048576            118823.07          78501.44             12.27              0.00          40308.82          72001.69             44.00
