@@ -147,7 +147,7 @@ def startServerSSH(net):
         host.cmd("/usr/sbin/sshd -o UseDNS=no -u0 &")
         info(host.name,"start sshd listener in ", host.IP(), '\n' )
 
-def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=5, bw_a2e=5, bw_h2e=5):
+def createTopo(pod, density, ip="127.0.0.1", port=6653, bw_c2a=10, bw_a2e=10, bw_h2e=10):
     topo = Fattree(pod, density)
     topo.createTopo()
     topo.createLink(bw_c2a=bw_c2a, bw_a2e=bw_a2e, bw_h2e=bw_h2e)
